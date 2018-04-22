@@ -6,6 +6,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { RandevuModule } from './randevu/randevu.module';
+import { TestModule } from './test/test.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -17,7 +18,8 @@ const PAGES_COMPONENTS = [
     ThemeModule,
     DashboardModule,
     HomeModule,
-    RandevuModule
+    RandevuModule,
+    TestModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,

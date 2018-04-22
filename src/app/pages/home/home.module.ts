@@ -13,6 +13,8 @@ import { RandevuCardComponent } from './randevu-card/randevu-card.component';
 import { UyeGorusleriComponent } from './uye-gorusleri/uye-gorusleri.component';
 import { RouterModule } from '@angular/router';
 import { RezervasyonCardComponent } from './rezervasyon-card/rezervasyon-card.component';
+import { IslemCardComponent } from './islem-card/islem-card.component';
+import { DuyuruComponent } from './duyuru/duyuru.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { RezervasyonCardComponent } from './rezervasyon-card/rezervasyon-card.co
     TanitimComponent,
     RandevuCardComponent,
     UyeGorusleriComponent,
-    RezervasyonCardComponent
+    RezervasyonCardComponent,
+    IslemCardComponent,
+    DuyuruComponent
   ],
 })
 export class HomeModule { }

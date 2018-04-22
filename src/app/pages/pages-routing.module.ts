@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { RandevuComponent } from './randevu/randevu.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,12 +13,15 @@ const routes: Routes = [{
   children: [{
     path: 'dashboard',
     component: DashboardComponent,
-  },{
+  }, {
     path: 'home',
     component: HomeComponent,
-  },{
+  }, {
     path: 'randevu',
     component: RandevuComponent,
+  }, {
+    path: 'test',
+    component: TestComponent,
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
@@ -39,7 +43,7 @@ const routes: Routes = [{
   }, {
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
-  },{
+  }, {
     path: 'authentication',
     loadChildren: './authentication/authentication.module#AuthenticationModule',
   }, {

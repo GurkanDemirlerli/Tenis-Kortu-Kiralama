@@ -7,6 +7,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 
 import { RandevuComponent } from './randevu.component';
 import { RandevuFormComponent } from './randevu-form/randevu-form.component';
+import { DayCardComponent } from './day-card/day-card.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RandevuFormComponent } from './randevu-form/randevu-form.component';
   ],
   declarations: [
     RandevuComponent,
-    RandevuFormComponent
+    RandevuFormComponent,
+    DayCardComponent
   ],
 })
 export class RandevuModule { }

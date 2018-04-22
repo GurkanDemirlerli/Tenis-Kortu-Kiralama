@@ -1,9 +1,47 @@
-<nb-card>
+<div class="row">
+  <div class="col-xxxl-4 col-md-4">
+    <div *ngFor="let gun of gunler; let idx = index">
+      <ngx-day-card [title]="gun.gunAdi" type="success" [on]="gun.secili" (click)="gunSec(idx)" [tarih]="gun.tarih">
+        <i class="nb-power-circled"></i>
+      </ngx-day-card>
+    </div>
+  </div>
+  <div class="col-xxxl-3 col-md-4">
+    <nb-card>
+      <nb-card-header>Kirala</nb-card-header>
+      <nb-card-body>
+
+        <button *ngFor="let saat of saatler; let idx = index" (click)="sec(idx)" class="btn btn-hero-secondary btn-demo" [disabled]="saat.status == 1"
+          [class.btn-hero-danger]="saat.val == 'DOLU'" [class.btn-hero-success]="saat.secili == 1" [class.btn-hero-warning]="saat.val == 'REZ...'"
+          style="margin:10px;">
+          {{saat.val}}
+        </button>
+        <br>
+        <br>
+        <button (click)="kirala()" class="btn btn-hero-warning btn-demo" style="float:right">Kirala</button>
+        <button (click)="rezervasyon()" class="btn btn-hero-primary btn-demo" style="float:left">Rezervasyon</button>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-4">
+    <nb-card>
+      <nb-card-header>Kiralama Bedeli</nb-card-header>
+      <nb-card-body>
+        <h1>{{kiralamaBedeli}} ₺</h1>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+</div>
+
+
+<!-- <nb-card>
     <nb-card-header>Using the Grid</nb-card-header>
     <nb-card-body>
-      <form>
+      <form [formGroup]="kiralaForm" (ngSubmit)="kirala()">
         <div class="form-group row">
-          <label for="inputEmail1" class="col-sm-3 col-form-label">Email</label>
+          <label for="Kort Numarası" class="col-sm-3 col-form-label">Kort Numarası</label>
           <div class="col-sm-9">
             <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
           </div>
@@ -47,4 +85,4 @@
         </div>
       </form>
     </nb-card-body>
-  </nb-card>
+  </nb-card> -->

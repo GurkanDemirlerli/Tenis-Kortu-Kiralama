@@ -179,6 +179,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }, {
         title: 'Register',
         link: '/pages/authentication/register'
+      },{
+        title: 'Logout',
+        link: '/pages/authentication/logout'
       },
     ],
   },

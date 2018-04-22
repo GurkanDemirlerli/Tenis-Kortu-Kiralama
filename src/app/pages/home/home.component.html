@@ -9,12 +9,38 @@
 </div>
 
 <div class="row">
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-islem-card title="Kirala" type="warning" aciklama="İstediğiniz vakitte.">
+      <i class="nb-edit" [routerLink]="['/pages/randevu']"></i>
+    </ngx-islem-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-islem-card title="Rezervasyon" type="success" aciklama="Üyelik zorunlu.">
+      <i class="nb-compose"></i>
+    </ngx-islem-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-islem-card title="Yorum Yap" type="info" aciklama="Tecrübelerinizi paylaşın.">
+      <i class="nb-email"></i>
+    </ngx-islem-card>
+  </div>
+
+  <div class="col-xxxl-3 col-md-6">
+    <ngx-islem-card title="İletişim" type="primary" aciklama="Bize yazın.">
+      <i class="nb-phone"></i>
+    </ngx-islem-card>
+  </div>
+</div>
+
+<div class="row">
 
   <div class="col-xxxl-9 col-xxl-9 col-md-12">
     <ngx-tanitim></ngx-tanitim>
   </div>
   <div class="col-xxxl-3 col-xxl-3 col-md-12">
-    <ngx-randevu-card></ngx-randevu-card>
+    <ngx-duyuru></ngx-duyuru>
   </div>
 
 </div>
