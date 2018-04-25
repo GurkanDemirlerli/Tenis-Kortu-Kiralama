@@ -1,3 +1,4 @@
+import { OnayComponent } from './onay/onay.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -19,12 +20,15 @@ const routes: Routes = [{
   }, {
     path: 'randevu',
     component: RandevuComponent,
-  }, {
+  },{
     path: 'test',
     component: TestComponent,
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
+  }, {
+    path: 'onay',
+    loadChildren: './onay/onay.module#OnayModule',
   }, {
     path: 'components',
     loadChildren: './components/components.module#ComponentsModule',

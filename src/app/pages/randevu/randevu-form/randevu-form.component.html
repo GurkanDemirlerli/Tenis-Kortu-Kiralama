@@ -1,14 +1,39 @@
 <div class="row">
-  <div class="col-xxxl-4 col-md-4">
-    <div *ngFor="let gun of gunler; let idx = index">
-      <ngx-day-card [title]="gun.gunAdi" type="success" [on]="gun.secili" (click)="gunSec(idx)" [tarih]="gun.tarih">
-        <i class="nb-power-circled"></i>
-      </ngx-day-card>
-    </div>
+  <div class="col-xxxl-3 col-md-4">
+    <nb-card>
+      <nb-card-header>
+        <div class="colors">
+          <div class="item text-warning">
+            <div class="color bg-warning"></div>
+            <div>
+              <h2 class="text-warning">Gün Seç</h2>
+            </div>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+
+        <div *ngFor="let gun of gunler; let idx = index">
+          <ngx-day-card [title]="gun.gunAdi" type="success" [on]="gun.secili" (click)="gunSec(idx)" [tarih]="gun.tarih">
+            <i class="nb-power-circled"></i>
+          </ngx-day-card>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
   <div class="col-xxxl-3 col-md-4">
     <nb-card>
-      <nb-card-header>Kirala</nb-card-header>
+      <nb-card-header>
+        <div class="colors">
+          <div class="item text-danger">
+            <div class="color bg-danger"></div>
+            <div>
+              <h2 class="text-danger">Saat Seç</h2>
+
+            </div>
+          </div>
+        </div>
+      </nb-card-header>
       <nb-card-body>
 
         <button *ngFor="let saat of saatler; let idx = index" (click)="sec(idx)" class="btn btn-hero-secondary btn-demo" [disabled]="saat.status == 1"
@@ -16,19 +41,46 @@
           style="margin:10px;">
           {{saat.val}}
         </button>
-        <br>
-        <br>
-        <button (click)="kirala()" class="btn btn-hero-warning btn-demo" style="float:right">Kirala</button>
-        <button (click)="rezervasyon()" class="btn btn-hero-primary btn-demo" style="float:left">Rezervasyon</button>
+
       </nb-card-body>
     </nb-card>
   </div>
 
   <div class="col-xxxl-3 col-md-4">
     <nb-card>
-      <nb-card-header>Kiralama Bedeli</nb-card-header>
+      <nb-card-header>
+        <div class="colors">
+          <div class="item text-info">
+            <div class="color bg-info"></div>
+            <div>
+              <h2 class="text-info">Detay</h2>
+
+            </div>
+          </div>
+        </div>
+      </nb-card-header>
       <nb-card-body>
-        <h1>{{kiralamaBedeli}} ₺</h1>
+
+        <div *ngFor="let saat of saatler;">
+
+          <p *ngIf="saat.secili">
+            <i class="ion-checkmark-circled"></i>
+            &nbsp; {{ gunler[seciliGunIndex].tarih }}, {{ gunler[seciliGunIndex].gunAdi }}, {{saat.val}}
+          </p>
+        </div>
+
+        <h5 style="display:inline-block;">
+          Tutar :
+        </h5>
+
+        <h3 class="text-success" style="display:inline-block;">
+          {{kiralamaBedeli}} ₺
+        </h3>
+
+        <br>
+        <br>
+        <button (click)="kirala()" class="btn btn-hero-warning btn-demo" style="float:right">Kirala</button>
+        <button (click)="rezervasyon()" class="btn btn-hero-primary btn-demo" style="float:left">Rezervasyon</button>
       </nb-card-body>
     </nb-card>
   </div>
