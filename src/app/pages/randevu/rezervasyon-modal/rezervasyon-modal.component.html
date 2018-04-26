@@ -1,0 +1,38 @@
+<div class="modal-header">
+  <span>{{ modalHeader }}</span>
+  <button class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <nb-card>
+    <nb-card-header>
+      <div class="colors">
+        <div class="item text-warning">
+          <div class="color bg-warning"></div>
+          <div>
+            <h2 class="text-warning">Rezervasyon</h2>
+
+          </div>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+
+      <div *ngFor="let randevuSaati of randevuSaatleri; let idx = index">
+
+        <p>
+          <i class="ion-checkmark-circled"></i>
+          &nbsp; {{randevuTarihi.tarih}}, {{randevuTarihi.gunAdi}}, {{randevuSaati}} &nbsp; &nbsp; Kort Kiralama 100 ₺
+
+        </p>
+      </div>
+
+      <br>
+      <br>
+      <button (click)="rezervasyonYap()" class="btn btn-hero-warning btn-demo" style="float:right">Onayla</button>
+    </nb-card-body>
+  </nb-card>
+</div>
+<div class="modal-footer">
+</div>

@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { RandevuComponent } from './randevu/randevu.component';
 import { TestComponent } from './test/test.component';
+import { IslemBasariliComponent } from './islem-basarili/islem-basarili.component';
 
 const routes: Routes = [{
   path: '',
@@ -20,9 +21,12 @@ const routes: Routes = [{
   }, {
     path: 'randevu',
     component: RandevuComponent,
-  },{
+  }, {
     path: 'test',
     component: TestComponent,
+  }, {
+    path: 'IslemBasarili',
+    component: IslemBasariliComponent,
   }, {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',

@@ -1,0 +1,47 @@
+<toaster-container [toasterconfig]="config"></toaster-container>
+<div class="modal-header">
+  <span>{{ modalHeader }}</span>
+  <button class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <nb-card>
+    <nb-card-header>
+      <div class="colors">
+        <div class="item text-info">
+          <div class="color bg-info"></div>
+          <div>
+            <h2 class="text-info">Fatura</h2>
+
+          </div>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+
+      <div *ngFor="let randevuSaati of randevuSaatleri; let idx = index">
+
+        <p>
+          <i class="ion-checkmark-circled"></i>
+          &nbsp; {{randevuTarihi.tarih}}, {{randevuTarihi.gunAdi}}, {{randevuSaati}} &nbsp; &nbsp; Kort Kiralama 100 ₺
+
+        </p>
+      </div>
+
+      <h5 style="display:inline-block;">
+        Tutar :
+      </h5>
+
+      <h3 class="text-info" style="display:inline-block;">
+        {{kiralamaBedeli}} ₺
+      </h3>
+
+      <br>
+      <br>
+      <button (click)="kirala()" class="btn btn-hero-info btn-demo" style="float:right">Ödemeyi Tamamla</button>
+    </nb-card-body>
+  </nb-card>
+</div>
+<div class="modal-footer">
+</div>

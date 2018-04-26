@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { KiralamaService, AuthService } from '../../../providers';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { KiralamaModalComponent } from '../kiralama-modal/kiralama-modal.component';
+import { RezervasyonModalComponent } from '../rezervasyon-modal/rezervasyon-modal.component';
 
 
 @Component({
@@ -11,7 +14,7 @@ import * as moment from 'moment';
   templateUrl: './randevu-form.component.html',
 })
 export class RandevuFormComponent {
-  seciliGunIndex = 1;
+  seciliGunIndex = 0;
   gunler = [
     { tarih: "", gunAdi: "", secili: 1 },
     { tarih: "", gunAdi: "", secili: 0 },
@@ -24,7 +27,8 @@ export class RandevuFormComponent {
   constructor(
     private kiralamaService: KiralamaService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private modalService: NgbModal
   ) {
     for (let i = 0; i < 5; i++) {
       this.gunler[i].tarih = moment().add(i, 'days').format('DD-MM-YYYY');
@@ -200,6 +204,44 @@ export class RandevuFormComponent {
     });
     await this.kiralamaService.kirala(this.gunler[this.seciliGunIndex].tarih, kiralanacakSaatler, this.authService.user.uid);
     this.router.navigate(['/']);//faturaya yonelt
+  }
+
+  kiralaModal() {
+    let kiralanacakSaatler = [];
+    this.saatler.forEach(saat => {
+      if (saat.secili == 1) {
+        kiralanacakSaatler.push(saat.val);
+      }
+    });
+    const activeModal = this.modalService.open(KiralamaModalComponent, { size: 'lg', container: 'nb-layout' });
+
+    activeModal.componentInstance.modalHeader = 'Ödeme';
+    activeModal.componentInstance.modalContent = 'Content';
+    activeModal.componentInstance.randevuTarihi = {
+      tarih: this.gunler[this.seciliGunIndex].tarih,
+      gunAdi: this.gunler[this.seciliGunIndex].gunAdi
+    };
+    activeModal.componentInstance.randevuSaatleri = kiralanacakSaatler;
+    activeModal.componentInstance.kiralamaBedeli = this.kiralamaBedeli;
+  }
+
+  rezervasyonModal() {
+    let rezervasyonSaatleri = [];
+    this.saatler.forEach(saat => {
+      if (saat.secili == 1) {
+        rezervasyonSaatleri.push(saat.val);
+      }
+    });
+    const activeModal = this.modalService.open(RezervasyonModalComponent, { size: 'lg', container: 'nb-layout' });
+
+    activeModal.componentInstance.modalHeader = 'Rezervasyon';
+    activeModal.componentInstance.modalContent = 'Content';
+    activeModal.componentInstance.randevuTarihi = {
+      tarih: this.gunler[this.seciliGunIndex].tarih,
+      gunAdi: this.gunler[this.seciliGunIndex].gunAdi
+    };
+    activeModal.componentInstance.randevuSaatleri = rezervasyonSaatleri;
+    activeModal.componentInstance.kiralamaBedeli = this.kiralamaBedeli;
   }
 
 
