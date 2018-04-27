@@ -12,4 +12,8 @@ export class UserService {
     getUserData(id) {
         return this.db.object('/userProfile/' + id);
     }
+
+    getRandevular(id){
+        return this.db.list('/randevular', (ref) => ref.orderByChild('islemYapan').equalTo(id));
+    }
 }

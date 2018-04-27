@@ -37,7 +37,7 @@
       <nb-card-body>
 
         <button *ngFor="let saat of saatler; let idx = index" (click)="sec(idx)" class="btn btn-hero-secondary btn-demo" [disabled]="saat.status == 1"
-          [class.btn-hero-danger]="saat.val == 'DOLU'" [class.btn-hero-success]="saat.secili == 1" [class.btn-hero-warning]="saat.val == 'REZ...'"
+          [class.btn-hero-danger]="saat.val == 'DOLU'" [class.btn-hero-success]="saat.secili == 1" [class.btn-hero-primary]="saat.val == 'R.E.Z.'"
           style="margin:10px;">
           {{saat.val}}
         </button>

@@ -30,8 +30,7 @@ export class RezervasyonModalComponent {
   }
 
   async rezervasyonYap() {
-    await this.kiralamaService.rezervasyonYap(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid);
-    this.activeModal.close();    
-    this.router.navigate(['/pages/IslemBasarili']);
+    await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid, "rezervasyon");
+    this.activeModal.close();
   }
 }

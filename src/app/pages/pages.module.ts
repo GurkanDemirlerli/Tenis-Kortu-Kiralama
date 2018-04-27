@@ -9,6 +9,7 @@ import { RandevuModule } from './randevu/randevu.module';
 import { TestModule } from './test/test.module';
 import { OnayModule } from './onay/onay.module';
 import { IslemBasariliModule } from './islem-basarili/islem-basarili.module';
+import { ProfileModule } from './profile/profile.module';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -23,7 +24,8 @@ const PAGES_COMPONENTS = [
     RandevuModule,
     TestModule,
     OnayModule,
-    IslemBasariliModule
+    IslemBasariliModule,
+    ProfileModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,

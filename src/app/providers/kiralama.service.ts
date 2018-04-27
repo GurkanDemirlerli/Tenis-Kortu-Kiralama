@@ -16,14 +16,21 @@ export class KiralamaService {
         return this.db.object('/kortDurumu/' + tarih + '/' + saat);
     }
 
-    // kirala(tarih, saat, kullaniciId) {
-    //     let item$ = this.getItem(tarih, saat);
-    //     item$.valueChanges().first().subscribe(item => {
-    //         if (!item) {
-    //             return this.db.list('/kortDurumu/' + tarih + "/" + saat).push({
-    //                 "kiralayan": kullaniciId
-    //             });
-    //         }
+
+
+    // kirala(tarih, saatler, kullaniciId) {
+    //     saatler.forEach(saat => {
+    //         let item$ = this.getItem(tarih, saat);
+    //         item$.valueChanges().first().subscribe(item => {
+    //             if (!item) {
+    //                 return this.db.list('/kortDurumu/' + tarih + "/" + saat).push({
+    //                     "islemYapan": kullaniciId,
+    //                     "islemTuru": "kiralama",
+    //                     "tarih": tarih,
+    //                     "saat": saat
+    //                 });
+    //             }
+    //         });
     //     });
     // }
 
@@ -42,6 +49,23 @@ export class KiralamaService {
             });
         });
     }
+
+    randevuEkle(tarih, saatler, kullaniciId, islemTuru) {
+        saatler.forEach(saat => {
+            return this.db.list('/randevular').push({
+                "islemYapan": kullaniciId,
+                "islemTuru": islemTuru,
+                "tarih": tarih,
+                "saat": saat
+            })
+        });
+    }
+
+    randevuGetir(tarih): any {
+        return this.db.list('/randevular', (ref) => ref.orderByChild('tarih').equalTo(tarih));
+    }
+
+
 
     rezervasyonYap(tarih, saatler, kullaniciId) {
         saatler.forEach(saat => {

@@ -51,10 +51,10 @@ export class KiralamaModalComponent {
   }
 
   async kirala() {
-    await this.kiralamaService.kirala(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid);
+    await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid, "kiralama");
     this.showToast(this.type, this.title, this.content);
-    this.activeModal.close();    
-    this.router.navigate(['/pages/IslemBasarili']);
+    this.activeModal.close();
+    // this.router.navigate(['/pages/IslemBasarili']);
   }
 
   private showToast(type: string, title: string, body: string) {

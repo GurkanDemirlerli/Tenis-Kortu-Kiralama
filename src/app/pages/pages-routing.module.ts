@@ -31,8 +31,8 @@ const routes: Routes = [{
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
   }, {
-    path: 'onay',
-    loadChildren: './onay/onay.module#OnayModule',
+    path: 'profile',
+    loadChildren: './profile/profile.module#ProfileModule',
   }, {
     path: 'components',
     loadChildren: './components/components.module#ComponentsModule',
