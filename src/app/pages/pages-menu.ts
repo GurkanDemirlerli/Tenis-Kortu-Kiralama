@@ -18,6 +18,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
+    title: 'Profilim',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Randevularim',
+        link: '/pages/profile/randevularim'
+      },
+    ],
+  },
+  {
     title: 'UI Features',
     icon: 'nb-keypad',
     link: '/pages/ui-features',
@@ -179,7 +189,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }, {
         title: 'Register',
         link: '/pages/authentication/register'
-      },{
+      }, {
         title: 'Logout',
         link: '/pages/authentication/logout'
       },
