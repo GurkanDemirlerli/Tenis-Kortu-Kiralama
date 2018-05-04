@@ -12,6 +12,8 @@ import 'style-loader!angular2-toaster/toaster.css';
   templateUrl: './kiralama-modal.component.html',
 })
 export class KiralamaModalComponent {
+  user;
+  telephone;
 
   config: ToasterConfig;
 
@@ -43,7 +45,9 @@ export class KiralamaModalComponent {
     private router: Router,
     private toasterService: ToasterService
   ) {
-
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   closeModal() {
@@ -51,7 +55,12 @@ export class KiralamaModalComponent {
   }
 
   async kirala() {
-    await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid, "kiralama");
+    if (this.user) {
+      await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid, "kiralama");
+    }
+    else {
+      await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri,this.telephone, "kiralama");
+    }
     this.showToast(this.type, this.title, this.content);
     this.activeModal.close();
     // this.router.navigate(['/pages/IslemBasarili']);

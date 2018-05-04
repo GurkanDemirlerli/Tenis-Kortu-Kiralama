@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { RezervasyonCardComponent } from './rezervasyon-card/rezervasyon-card.component';
 import { IslemCardComponent } from './islem-card/islem-card.component';
 import { DuyuruComponent } from './duyuru/duyuru.component';
+import { GeriSayimComponent } from './geri-sayim/geri-sayim.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DuyuruComponent } from './duyuru/duyuru.component';
     UyeGorusleriComponent,
     RezervasyonCardComponent,
     IslemCardComponent,
-    DuyuruComponent
+    DuyuruComponent,
+    GeriSayimComponent
   ],
 })
 export class HomeModule { }

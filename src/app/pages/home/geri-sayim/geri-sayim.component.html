@@ -1,0 +1,40 @@
+<nb-card size="xsmall">
+
+
+  <nb-card-body>
+    <div class="location">
+      <span>Kalan Süreniz</span>
+    </div>
+    <br>
+    <br>
+    <div *ngIf="geriSayim" class="daily-forecast">
+
+      <div class="details">
+        <div class="parameter">
+          <span class="parameter-name">Saat</span>
+          <span class="parameter-value">{{countdown?.hours}}</span>
+        </div>
+        <div class="parameter">
+          <span class="parameter-name">Dakika</span>
+          <span class="parameter-value">{{countdown?.minutes}}</span>
+        </div>
+        <div class="parameter">
+          <span class="parameter-name">Saniye</span>
+          <span class="parameter-value">{{countdown?.seconds}}</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 
+    <p *ngIf="yaklasanRandevular.length < 1">
+      Yaklaşan Randevunuz Yok
+    </p>
+    <p *ngFor="let randevu of yaklasanRandevular">
+      Yaklaşan Randevunuz Var
+    </p>
+    <p *ngIf="geriSayim"> {{countdown}}</p> -->
+  </nb-card-body>
+
+
+</nb-card>

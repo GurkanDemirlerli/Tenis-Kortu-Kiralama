@@ -11,6 +11,7 @@ import { RandevuFormComponent } from './randevu-form/randevu-form.component';
 import { DayCardComponent } from './day-card/day-card.component';
 import { KiralamaModalComponent } from './kiralama-modal/kiralama-modal.component';
 import { ToasterModule } from 'angular2-toaster';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ToasterModule } from 'angular2-toaster';
     ThemeModule,
     NgxEchartsModule,
     ToasterModule,
+    RouterModule
   ],
   declarations: [
     RandevuComponent,

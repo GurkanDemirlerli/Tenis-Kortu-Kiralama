@@ -13,7 +13,7 @@ export class UserService {
         return this.db.object('/userProfile/' + id);
     }
 
-    getRandevular(id){
+    getRandevular(id): any {
         return this.db.list('/randevular', (ref) => ref.orderByChild('islemYapan').equalTo(id));
     }
 }

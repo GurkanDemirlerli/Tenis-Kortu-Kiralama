@@ -30,7 +30,8 @@
 
       <br>
       <br>
-      <button (click)="rezervasyonYap()" class="btn btn-hero-warning btn-demo" style="float:right">Onayla</button>
+      <button *ngIf="user" (click)="rezervasyonYap()" class="btn btn-hero-warning btn-demo" style="float:right">Onayla</button>
+      <button *ngIf="!user" (click)="navigateToRegister()" class="btn btn-hero-danger btn-demo" style="float:right">Rezervasyon İçin Üye Ol</button>
     </nb-card-body>
   </nb-card>
 </div>

@@ -36,7 +36,10 @@
       <h3 class="text-info" style="display:inline-block;">
         {{kiralamaBedeli}} ₺
       </h3>
-
+      <div *ngIf="!user" class="form-group">
+        <label for="telephone">Telefon</label>
+        <input [(ngModel)]="telephone"  type="text" class="form-control" name="telephone" id="telephone" placeholder="Örnek: XXXX-XXX-XX-XX">
+      </div>
       <br>
       <br>
       <button (click)="kirala()" class="btn btn-hero-info btn-demo" style="float:right">Ödemeyi Tamamla</button>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './rezervasyon-modal.component.html',
 })
 export class RezervasyonModalComponent {
-
+  user;
   modalHeader: string;
   modalContent: string;
   randevuTarihi;
@@ -22,15 +22,23 @@ export class RezervasyonModalComponent {
     private authService: AuthService,
     private router: Router
   ) {
-
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   closeModal() {
     this.activeModal.close();
   }
+  navigateToRegister() {
+    this.router.navigate(['/pages/authentication/register']);
+    this.activeModal.close();
+  }
 
   async rezervasyonYap() {
-    await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid, "rezervasyon");
-    this.activeModal.close();
+    if (this.user) {
+      await this.kiralamaService.randevuEkle(this.randevuTarihi.tarih, this.randevuSaatleri, this.authService.user.uid, "rezervasyon");
+      this.activeModal.close();
+    }
   }
 }

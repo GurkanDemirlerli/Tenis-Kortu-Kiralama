@@ -52,7 +52,8 @@ export class RandevuFormComponent {
       { val: "19:00", status: 0, secili: 0 },
       { val: "20:00", status: 0, secili: 0 },
       { val: "21:00", status: 0, secili: 0 },
-      { val: "22:00", status: 0, secili: 0 }
+      { val: "22:00", status: 0, secili: 0 },
+      { val: "23:00", status: 0, secili: 0 }//sil
     ];
   }
 
