@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <span>Yorum Yap</span>
+  <button class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <nb-card>
+    <nb-card-header>
+      <div class="colors">
+        <div class="item text-info">
+          <div class="color bg-info"></div>
+          <div>
+            <h2 class="text-info">Görüşlerinizi Paylaşın</h2>
+
+          </div>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      
+      <div *ngIf="user" class="form-group">
+        <label for="icerik">Yorum</label>
+        <input [(ngModel)]="icerik"  type="text" class="form-control" name="icerik" id="icerik" placeholder="Yorumunuz...">
+      </div>
+      <br>
+      <br>
+      <button (click)="submit()" class="btn btn-hero-info btn-demo" style="float:right">Gönder</button>
+    </nb-card-body>
+  </nb-card>
+</div>
+<div class="modal-footer">
+</div>

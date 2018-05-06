@@ -16,6 +16,7 @@ import { RezervasyonCardComponent } from './rezervasyon-card/rezervasyon-card.co
 import { IslemCardComponent } from './islem-card/islem-card.component';
 import { DuyuruComponent } from './duyuru/duyuru.component';
 import { GeriSayimComponent } from './geri-sayim/geri-sayim.component';
+import { YorumModalComponent } from './yorum-modal/yorum-modal.component';
 
 
 @NgModule({
@@ -34,7 +35,10 @@ import { GeriSayimComponent } from './geri-sayim/geri-sayim.component';
     RezervasyonCardComponent,
     IslemCardComponent,
     DuyuruComponent,
-    GeriSayimComponent
+    GeriSayimComponent,
+    YorumModalComponent
+  ], entryComponents: [
+    YorumModalComponent,
   ],
 })
 export class HomeModule { }

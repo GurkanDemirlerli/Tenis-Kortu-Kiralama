@@ -17,6 +17,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService, UserService, KiralamaService } from './providers';
 import { NotificationsModule, NotificationsService } from 'angular4-notify';
 import { RouterModule } from '@angular/router';
+import { WeatherService } from './providers/weather.service';
+import { HttpModule } from '@angular/http';
+import { YorumService } from './providers/yorum.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +28,7 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    HttpModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
@@ -41,6 +45,8 @@ import { RouterModule } from '@angular/router';
   ],
   bootstrap: [AppComponent],
   providers: [
+    YorumService,
+    WeatherService,
     AuthService,
     UserService,
     KiralamaService,

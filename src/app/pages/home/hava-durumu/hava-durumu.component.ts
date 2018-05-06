@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WeatherService } from '../../../providers/weather.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'ngx-hava-durumu',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
 })
 
 export class HavaDurumuComponent {
-  constructor() { }
+  todaysTemperature;
+  constructor(
+    private weatherService: WeatherService
+  ) {
+    let today = moment().format('X');
+    this.weatherService.getHavaDurumu(today).subscribe(data => this.todaysTemperature = data.currently.temperature);
+  }
 }

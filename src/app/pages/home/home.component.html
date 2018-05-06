@@ -23,7 +23,7 @@
 
   <div class="col-xxxl-3 col-md-6">
     <ngx-islem-card title="Yorum Yap" type="info" aciklama="Tecrübelerinizi paylaşın.">
-      <i class="nb-email"></i>
+      <i class="nb-email" (click)="yorumModal()"></i>
     </ngx-islem-card>
   </div>
 
@@ -50,7 +50,7 @@
     <ngx-uye-gorusleri></ngx-uye-gorusleri>
   </div>
   <div class="col-xxxl-3 col-xxl-3 col-md-12">
-    <ngx-rezervasyon-card></ngx-rezervasyon-card>
+    <ngx-rezervasyon-card (click)="yorumModal()"></ngx-rezervasyon-card>
   </div>
 
 </div>
