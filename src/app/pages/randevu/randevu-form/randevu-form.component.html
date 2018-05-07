@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xxxl-3 col-md-4">
-    <nb-card>
+    <nb-card size="xxlarge">
       <nb-card-header>
         <div class="colors">
           <div class="item text-warning">
@@ -22,7 +22,7 @@
     </nb-card>
   </div>
   <div class="col-xxxl-3 col-md-4">
-    <nb-card>
+    <nb-card size="xxlarge">
       <nb-card-header>
         <div class="colors">
           <div class="item text-danger">
@@ -34,20 +34,21 @@
           </div>
         </div>
       </nb-card-header>
-      <nb-card-body>
+      <nb-card-body align="center">
 
         <button *ngFor="let saat of saatler; let idx = index" (click)="sec(idx)" class="btn btn-hero-secondary btn-demo" [disabled]="saat.status == 1"
           [class.btn-hero-danger]="saat.val == 'DOLU'" [class.btn-hero-success]="saat.secili == 1" [class.btn-hero-primary]="saat.val == 'R.E.Z.'"
-          style="margin:10px;">
+          style="margin:10px; width:40%;">
           {{saat.val}}
         </button>
 
       </nb-card-body>
+
     </nb-card>
   </div>
 
   <div class="col-xxxl-3 col-md-4">
-    <nb-card>
+    <nb-card size="medium">
       <nb-card-header>
         <div class="colors">
           <div class="item text-info">
@@ -77,10 +78,62 @@
           {{kiralamaBedeli}} ₺
         </h3>
 
-        <br>
-        <br>
-        <button (click)="kiralaModal()" class="btn btn-hero-warning btn-demo" style="float:right">Kirala</button>
-        <button (click)="rezervasyonModal()" class="btn btn-hero-primary btn-demo" style="float:left">Rezervasyon</button>
+
+      </nb-card-body>
+      <nb-card-footer>
+        <button (click)="kiralaModal()" class="btn btn-hero-warning btn-demo" style="float:right;  width:45%;">Kirala</button>
+        <button (click)="rezervasyonModal()" class="btn btn-hero-primary btn-demo" style="float:left;  width:45%;">Rezervasyon</button>
+
+      </nb-card-footer>
+    </nb-card>
+
+    <nb-card size="small">
+      <nb-card-header>
+        <div class="colors">
+          <div class="item text-success">
+            <div class="color bg-success"></div>
+            <div>
+              <h2 class="text-success">Hava Durumu</h2>
+
+            </div>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body style="padding-top:0; padding-bottom:0;">
+        <!-- <div class="location">
+          <span>Istanbul</span>
+        </div> -->
+        <!-- <div class="date">
+          <span>{{forecast[seciliGunIndex].date.weekday_short}} {{forecast[seciliGunIndex].date.day}} {{forecast[seciliGunIndex].date.monthname_short}}</span>
+        </div> -->
+        <div class="daily-forecast" style="margin-top:0; padding-top:0;">
+          <div class="info">
+            <div class="temperature">
+              <span>{{forecast[seciliGunIndex].temperature.current}}&deg;</span>
+            </div>
+            <div class="icon">
+              <img [src]="forecast[seciliGunIndex].logo" alt="">
+            </div>
+          </div>
+          <div class="details">
+            <div class="parameter">
+              <span class="parameter-name">max</span>
+              <span class="parameter-value">{{forecast[seciliGunIndex].temperature.max}}&deg;</span>
+            </div>
+            <div class="parameter">
+              <span class="parameter-name">min</span>
+              <span class="parameter-value">{{forecast[seciliGunIndex].temperature.min}}&deg;</span>
+            </div>
+            <div class="parameter">
+              <span class="parameter-name">wind</span>
+              <span class="parameter-value">{{forecast[seciliGunIndex].wind}} km/h</span>
+            </div>
+            <div class="parameter">
+              <span class="parameter-name">hum</span>
+              <span class="parameter-value">{{forecast[seciliGunIndex].hum}} %</span>
+            </div>
+          </div>
+        </div>
       </nb-card-body>
     </nb-card>
   </div>

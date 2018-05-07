@@ -1,3 +1,4 @@
+import { WeatherService } from './../../../providers/weather.service';
 import { Observable } from 'rxjs/Observable';
 import { Component } from '@angular/core';
 import { KiralamaService, AuthService } from '../../../providers';
@@ -14,6 +15,65 @@ import { RezervasyonModalComponent } from '../rezervasyon-modal/rezervasyon-moda
   templateUrl: './randevu-form.component.html',
 })
 export class RandevuFormComponent {
+
+  forecast = [{
+    temperature: {
+      current: "",
+      max: "",
+      min: ""
+    },
+    date: {
+      day: "",
+      weekday_short: "",
+      monthname_short: ""
+    },
+    logo: "",
+    wind: "",
+    hum: ""
+  }, {
+    temperature: {
+      current: "",
+      max: "",
+      min: ""
+    },
+    date: {
+      day: "",
+      weekday_short: "",
+      monthname_short: ""
+    },
+    logo: "",
+    wind: "",
+    hum: ""
+  }, {
+    temperature: {
+      current: "",
+      max: "",
+      min: ""
+    },
+    date: {
+      day: "",
+      weekday_short: "",
+      monthname_short: ""
+    },
+    logo: "",
+    wind: "",
+    hum: ""
+  }, {
+    temperature: {
+      current: "",
+      max: "",
+      min: ""
+    },
+    date: {
+      day: "",
+      weekday_short: "",
+      monthname_short: ""
+    },
+    logo: "",
+    wind: "",
+    hum: ""
+  },];
+
   seciliGunIndex = 0;
   gunler = [
     { tarih: "", gunAdi: "", secili: 1 },
@@ -28,7 +88,8 @@ export class RandevuFormComponent {
     private kiralamaService: KiralamaService,
     private router: Router,
     private authService: AuthService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private weatherService: WeatherService
   ) {
     for (let i = 0; i < 5; i++) {
       this.gunler[i].tarih = moment().add(i, 'days').format('DD-MM-YYYY');
@@ -36,6 +97,21 @@ export class RandevuFormComponent {
     }
     this.kortDurumuGetir(moment().format('DD-MM-YYYY'));
     console.log(this.gunler);
+    let today = moment().format('X');
+    this.weatherService.getHavaDurumu(today).subscribe(data => {
+      for (let i = 0; i < 4; i++) {
+        this.forecast[i].temperature.current = data.forecast.simpleforecast.forecastday[i].high.celsius;
+        this.forecast[i].temperature.max = data.forecast.simpleforecast.forecastday[i].high.celsius;
+        this.forecast[i].temperature.min = data.forecast.simpleforecast.forecastday[i].low.celsius;
+        this.forecast[i].date.day = data.forecast.simpleforecast.forecastday[i].date.day;
+        this.forecast[i].date.weekday_short = data.forecast.simpleforecast.forecastday[i].date.weekday_short;
+        this.forecast[i].date.monthname_short = data.forecast.simpleforecast.forecastday[i].date.monthname_short;
+        this.forecast[i].logo = data.forecast.simpleforecast.forecastday[i].icon_url;
+        this.forecast[i].wind = data.forecast.simpleforecast.forecastday[i].avewind.kph;
+        this.forecast[i].hum = data.forecast.simpleforecast.forecastday[i].avehumidity;
+      };
+      this.forecast[4] = this.forecast[3];
+    });
   }
 
   defaultSaatler() {
